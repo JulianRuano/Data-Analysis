@@ -75,7 +75,7 @@ sudo apt install python3-venv
 
 ```
 
-# requirements
+# Requirements
 
 ```bash
 pip install -r requirements.txt
