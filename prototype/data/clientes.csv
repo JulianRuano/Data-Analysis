@@ -1,0 +1,31 @@
+CLIENTNUM,Attrition_Flag,Customer_Age,Gender,Dependent_count,Education_Level,Marital_Status,Income_Category,Card_Category,Months_on_book,Total_Relationship_Count,Months_Inactive_12_mon,Contacts_Count_12_mon,Credit_Limit,Total_Revolving_Bal,Avg_Open_To_Buy,Total_Amt_Chng_Q4_Q1,Total_Trans_Amt,Total_Trans_Ct,Total_Ct_Chng_Q4_Q1,Avg_Utilization_Ratio
+768801616,Attrited Customer,60,F,1,Graduate,Married,Less than $40K,Blue,42,5,1,2,17148.74,9569.0,7579.74,1.119,3894.54,49,0.792,0.558
+768802818,Attrited Customer,51,F,2,College,Married,$40K - $60K,Blue,50,2,3,3,34516.0,7351.91,27164.09,0.561,5510.53,30,0.216,0.213
+768804031,Existing Customer,51,M,5,Graduate,Single,Unknown,Blue,34,3,2,1,11157.1,8021.95,3135.15,1.038,1702.2,66,0.927,0.719
+768804113,Attrited Customer,33,F,4,Graduate,Unknown,Unknown,Blue,49,2,3,2,7336.04,2435.57,4900.47,0.649,3201.53,38,0.711,0.332
+768800671,Existing Customer,61,F,0,High School,Married,$120K +,Blue,23,6,3,3,3581.17,50.14,3531.03,0.492,5861.62,33,0.592,0.014
+768803411,Existing Customer,58,F,0,Graduate,Divorced,Less than $40K,Blue,39,5,2,3,34516.0,10941.57,23574.43,0.795,510.0,28,0.36,0.317
+768802060,Existing Customer,38,F,4,High School,Married,Less than $40K,Blue,42,6,0,1,1438.0,373.88,1064.12,0.576,5243.27,77,0.209,0.26
+768803309,Existing Customer,48,M,2,High School,Married,$40K - $60K,Platinum,31,4,2,2,3422.47,2484.71,937.76,0.724,1165.82,58,0.405,0.726
+768802230,Existing Customer,43,F,2,Post-Graduate,Married,$60K - $80K,Blue,29,6,1,2,14183.21,2609.71,11573.5,0.929,7906.5,87,0.62,0.184
+768803361,Existing Customer,26,M,2,High School,Married,$60K - $80K,Blue,31,1,1,3,5089.2,2386.83,2702.37,0.492,4475.84,78,0.699,0.469
+768803419,Existing Customer,53,F,0,Graduate,Single,Unknown,Blue,39,3,5,3,6358.44,2002.91,4355.53,0.672,2501.97,65,0.715,0.315
+768800441,Existing Customer,42,F,4,Unknown,Divorced,Less than $40K,Blue,37,2,0,1,6033.15,542.98,5490.17,0.706,4212.96,72,0.734,0.09
+768801964,Attrited Customer,43,F,0,Doctorate,Single,Less than $40K,Blue,33,4,2,1,9017.54,7953.47,1064.07,0.624,4986.6,95,0.87,0.882
+768801435,Existing Customer,45,M,1,High School,Married,Less than $40K,Blue,19,3,3,3,4913.69,805.85,4107.84,1.045,1665.33,71,0.63,0.164
+768801294,Existing Customer,37,F,0,High School,Divorced,$120K +,Blue,22,4,2,2,24722.23,11891.39,12830.84,0.779,5141.94,63,0.646,0.481
+768800242,Existing Customer,40,F,2,Unknown,Married,$40K - $60K,Blue,36,1,3,1,1438.0,490.36,947.64,0.549,4676.03,87,0.783,0.341
+768801104,Attrited Customer,53,M,1,College,Married,Less than $40K,Blue,39,6,3,2,1581.91,1026.66,555.25,0.112,1149.26,42,0.512,0.649
+768800519,Existing Customer,47,F,5,High School,Single,Less than $40K,Blue,37,6,3,3,11641.58,6600.78,5040.8,0.646,2155.16,58,0.407,0.567
+768802679,Existing Customer,33,M,3,High School,Single,$60K - $80K,Blue,31,2,2,2,31651.74,3133.52,28518.22,0.545,2991.79,16,0.499,0.099
+768801210,Attrited Customer,54,F,5,High School,Single,$80K - $120K,Blue,39,1,2,3,7959.15,390.0,7569.15,0.758,2629.24,19,0.705,0.049
+768802435,Attrited Customer,36,M,3,Unknown,Single,$120K +,Blue,41,4,3,2,3124.33,809.2,2315.13,0.721,5339.15,16,0.766,0.259
+768802804,Existing Customer,38,F,4,High School,Unknown,Less than $40K,Blue,38,1,0,1,3103.56,2790.1,313.46,0.875,6588.28,76,0.887,0.899
+768801817,Existing Customer,39,F,1,High School,Unknown,$40K - $60K,Silver,34,6,1,3,6423.51,2550.13,3873.38,0.838,3965.49,73,0.836,0.397
+768802308,Existing Customer,57,M,3,College,Divorced,$40K - $60K,Blue,42,2,2,1,12080.3,5641.5,6438.8,0.649,2834.46,50,0.899,0.467
+768801010,Existing Customer,55,M,1,Graduate,Single,$80K - $120K,Blue,33,1,3,3,9190.56,330.86,8859.7,0.387,1449.39,28,0.635,0.036
+768802167,Existing Customer,36,F,3,Graduate,Unknown,$120K +,Blue,29,5,1,3,17560.63,10694.42,6866.21,0.908,2701.26,78,0.501,0.609
+768802952,Existing Customer,37,F,2,Graduate,Single,$80K - $120K,Blue,45,3,2,2,4432.85,859.97,3572.88,0.958,5640.19,87,0.622,0.194
+768801491,Attrited Customer,49,M,3,Graduate,Single,$40K - $60K,Blue,33,2,3,2,4979.76,413.32,4566.44,0.683,540.26,33,0.389,0.083
+768803807,Existing Customer,33,F,2,College,Single,Less than $40K,Blue,43,3,3,0,13107.15,6370.07,6737.08,0.833,5411.56,64,0.702,0.486
+768800162,Existing Customer,52,F,5,Unknown,Single,$40K - $60K,Blue,36,4,3,2,4124.01,243.32,3880.69,0.709,4512.59,84,0.581,0.059

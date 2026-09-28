@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% block title %}Dashboard de Retencion de Clientes{% endblock %}
+{% block content %}
+<div class="app-shell">
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="brand-mark">CB</span>
+      <div>
+        <h1>Retencion de Clientes</h1>
+        <p>Prediccion de cancelacion de tarjeta de credito</p>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab-btn is-active" data-tab="dashboard">Dashboard</button>
+      <button class="tab-btn" data-tab="seguimiento">Seguimiento de ofertas</button>
+    </nav>
+  </header>
+
+  <main class="content">
+
+    <!-- ===================== TAB: DASHBOARD ===================== -->
+    <section id="tab-dashboard" class="tab-panel is-active">
+
+      <div class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card"><span class="kpi-label">Total clientes</span><span class="kpi-value" id="kpi-total">-</span></div>
+        <div class="kpi-card kpi-alert"><span class="kpi-label">En riesgo (&ge;50%)</span><span class="kpi-value" id="kpi-riesgo">-</span></div>
+        <div class="kpi-card"><span class="kpi-label">Probabilidad promedio</span><span class="kpi-value" id="kpi-promedio">-</span></div>
+        <div class="kpi-card"><span class="kpi-label">Pendientes de contacto</span><span class="kpi-value" id="kpi-pendientes">-</span></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Distribucion de riesgo</h2>
+        </div>
+        <div class="risk-bars" id="risk-bars">
+          <div class="risk-bar-item" data-nivel="bajo">
+            <div class="risk-bar-track"><div class="risk-bar-fill nivel-bajo" style="height:0%"></div></div>
+            <span class="risk-bar-count" id="count-bajo">0</span>
+            <span class="risk-bar-label">Bajo</span>
+          </div>
+          <div class="risk-bar-item" data-nivel="moderado">
+            <div class="risk-bar-track"><div class="risk-bar-fill nivel-moderado" style="height:0%"></div></div>
+            <span class="risk-bar-count" id="count-moderado">0</span>
+            <span class="risk-bar-label">Moderado</span>
+          </div>
+          <div class="risk-bar-item" data-nivel="alto">
+            <div class="risk-bar-track"><div class="risk-bar-fill nivel-alto" style="height:0%"></div></div>
+            <span class="risk-bar-count" id="count-alto">0</span>
+            <span class="risk-bar-label">Alto</span>
+          </div>
+          <div class="risk-bar-item" data-nivel="critico">
+            <div class="risk-bar-track"><div class="risk-bar-fill nivel-critico" style="height:0%"></div></div>
+            <span class="risk-bar-count" id="count-critico">0</span>
+            <span class="risk-bar-label">Critico</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Clientes</h2>
+          <label class="switch">
+            <input type="checkbox" id="filtro-solo-riesgo">
+            <span>Solo clientes en riesgo (&ge;50%)</span>
+          </label>
+        </div>
+
+        <div class="filters" id="filters">
+          <input type="text" id="f-buscar" placeholder="Buscar por N. de cliente...">
+
+          <select id="f-nivel">
+            <option value="">Nivel de riesgo: todos</option>
+            <option value="critico">Critico</option>
+            <option value="alto">Alto</option>
+            <option value="moderado">Moderado</option>
+            <option value="bajo">Bajo</option>
+          </select>
+
+          <select id="f-genero">
+            <option value="">Genero: todos</option>
+          </select>
+
+          <select id="f-education">
+            <option value="">Educacion: todas</option>
+          </select>
+
+          <select id="f-marital">
+            <option value="">Estado civil: todos</option>
+          </select>
+
+          <select id="f-income">
+            <option value="">Ingresos: todos</option>
+          </select>
+
+          <select id="f-card">
+            <option value="">Tarjeta: todas</option>
+          </select>
+
+          <select id="f-attrition">
+            <option value="">Estado cliente: todos</option>
+          </select>
+
+          <select id="f-oferta">
+            <option value="">Oferta: todos</option>
+            <option value="true">Ya contactado</option>
+            <option value="false">Sin contactar</option>
+          </select>
+
+          <select id="f-orden">
+            <option value="probabilidad_cancelacion:desc">Riesgo: mayor a menor</option>
+            <option value="probabilidad_cancelacion:asc">Riesgo: menor a mayor</option>
+            <option value="Customer_Age:desc">Edad: mayor a menor</option>
+            <option value="Total_Trans_Amt:asc">Monto transacciones: menor a mayor</option>
+          </select>
+
+          <button class="btn btn-ghost" id="f-limpiar">Limpiar filtros</button>
+        </div>
+
+        <div class="table-wrap">
+          <table class="clients-table">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Riesgo</th>
+                <th>Edad</th>
+                <th>Genero</th>
+                <th>Educacion</th>
+                <th>Ingresos</th>
+                <th>Tarjeta</th>
+                <th>Estado</th>
+                <th>Seguimiento</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="clientes-tbody">
+              <tr><td colspan="10" class="empty-state">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </section>
+
+    <!-- ===================== TAB: SEGUIMIENTO ===================== -->
+    <section id="tab-seguimiento" class="tab-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Ofertas enviadas &mdash; seguimiento</h2>
+        </div>
+
+        <div class="filters">
+          <select id="s-estado">
+            <option value="">Estado: todos</option>
+            <option value="enviada">Enviada</option>
+            <option value="contactado">Contactado</option>
+            <option value="aceptada">Aceptada</option>
+            <option value="rechazada">Rechazada</option>
+            <option value="sin_respuesta">Sin respuesta</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table class="clients-table">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Oferta</th>
+                <th>Correo destino</th>
+                <th>Fecha envio</th>
+                <th>Estado</th>
+                <th>Actualizar</th>
+              </tr>
+            </thead>
+            <tbody id="ofertas-tbody">
+              <tr><td colspan="6" class="empty-state">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ===================== MODAL: ENVIAR OFERTA ===================== -->
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Enviar oferta de retencion</h3>
+      <button class="modal-close" id="modal-close">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <p class="modal-client-info" id="modal-client-info"></p>
+      <div class="offers-grid" id="offers-grid"></div>
+      <div class="email-preview" id="email-preview" hidden></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="modal-cancel">Cancelar</button>
+      <button class="btn btn-primary" id="modal-confirm" disabled>Simular envio</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+{% endblock %}
